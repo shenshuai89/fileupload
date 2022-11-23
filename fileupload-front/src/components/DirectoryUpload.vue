@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="directory-container">
     <input type="file" accept="image/*" ref="uploadFile" @change="upload" webkitdirectory class="input-upload" />目录上传
   </div>
 </template>
@@ -40,10 +40,10 @@ export default {
 };
 </script>
 <style scoped>
-.container {
+.directory-container {
   display: inline-block;
   position: relative;
-  width: 80px;
+  width: 100px;
   height: 40px;
   border-radius: 5px;
   background-color: blue;
@@ -58,7 +58,7 @@ export default {
 .input-upload {
   opacity: 0;
   font-size: 0;
-  width: 100%;
+  width: 100px;
   height: 100%;
   position: absolute;
   top: 0;

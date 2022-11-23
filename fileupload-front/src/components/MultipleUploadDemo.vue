@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>多文件上传</div>
+    <div>一次可以选多个图上传</div>
     <div class="container">
       <template v-if="imageDataList.length === 0">
         <input ref="uploadFile" type="file" accept="image/*" @change="uploadFile" class="input-upload" multiple />图片上传

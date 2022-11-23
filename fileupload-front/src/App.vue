@@ -26,7 +26,7 @@ const currentIndex = ref(0);
 <template>
   <div class="container">
     <div class="tab-panel">
-      <div v-for="(item,index) in titleList" :key="item.id" class="tab-panel-item" @click="currentIndex = index">
+      <div v-for="(item,index) in titleList" :key="item.id" :class="['tab-panel-item', {'selected': currentIndex === index}]" @click="currentIndex = index">
         {{ item.name }}
       </div>
     </div>
@@ -51,14 +51,21 @@ const currentIndex = ref(0);
   display: flex;
   flex-direction: row;
   cursor: pointer;
+  padding-bottom: 5px;
 }
-.tab-panel :hover {
-  background: #eeeeee;
-}
+
 .tab-panel-item {
   width: 100px;
   height: 40px;
   line-height: 40px;
+  border-radius: 5px;
+}
+.tab-panel-item:not(.selected):hover {
+  background: #eeeeee;
+}
+.selected {
+  background-color: #0052ff;
+  color: #fff;
 }
 .tab-content {
   height: 400px;

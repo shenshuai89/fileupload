@@ -158,7 +158,6 @@ export default {
 .submit-button {
   display: inline-block;
   padding: 8px 16px;
-  height: 40px;
   color: #fff;
   border-radius: 4px;
   cursor: pointer;

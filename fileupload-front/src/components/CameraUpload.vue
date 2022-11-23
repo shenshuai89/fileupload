@@ -202,11 +202,13 @@ export default {
 .camera-button {
   display: inline-block;
   padding: 8px 16px;
-  height: 40px;
   color: #fff;
   border-radius: 4px;
   cursor: pointer;
   white-space: nowrap;
+  background-color: blue;
+}
+.camera-button:hover{
   background-color: #0073ea;
 }
 .camera-container {

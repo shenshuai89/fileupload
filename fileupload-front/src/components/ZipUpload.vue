@@ -1,5 +1,16 @@
 <template>
-  <div class="container"><input type="file" accept="*" ref="uploadFile" @change="upload" class="input-upload" />压缩包上传</div>
+  <div class="zip-container">
+    <div class="input-container">
+      <input
+        type="file"
+        accept="*"
+        ref="uploadFile"
+        @change="upload"
+        class="input-upload"
+      />
+      <span>压缩包上传</span>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -25,13 +36,19 @@ export default {
         })
         .post("/single", formData, {
           onUploadProgress: function (progressEvent) {
-            const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+            const percentCompleted = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total
+            );
             console.log(percentCompleted);
           },
         });
     },
     // 生成压缩包
-    generateZipFile(zipName, files, options = { type: "blob", compression: "DEFLATE" }) {
+    generateZipFile(
+      zipName,
+      files,
+      options = { type: "blob", compression: "DEFLATE" }
+    ) {
       return new Promise((resolve, reject) => {
         const zip = new JSZip();
         for (let i = 0; i < files.length; i++) {
@@ -50,25 +67,32 @@ export default {
 };
 </script>
 <style scoped>
-.container {
-  display: inline-block;
-  position: relative;
+.zip-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+.input-container{
   width: 100px;
   height: 40px;
   border-radius: 5px;
   background-color: blue;
   color: #ffffff;
-  line-height: 40px;
-  text-align: center;
   cursor: pointer;
+  text-align: center;
 }
-.container:hover {
+.input-container:hover{
   background-color: #0052ff;
 }
 .input-upload {
   opacity: 0;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
   position: absolute;
   top: 0;
   left: 0;
